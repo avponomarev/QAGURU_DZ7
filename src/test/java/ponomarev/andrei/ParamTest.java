@@ -2,23 +2,13 @@ package ponomarev.andrei;
 
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
-
-import java.util.stream.Stream;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
-import static com.codeborne.selenide.impl.Cleanup.of;
-import static java.util.List.of;
+
 
 public class ParamTest {
     @BeforeAll
@@ -82,7 +72,7 @@ public class ParamTest {
 
 
     @EnumSource(Product.class)
-    @ParameterizedTest (name = "Checking the display of currency in the product price for {0}")
+    @ParameterizedTest(name = "Checking the display of currency in the product price for {0}")
     void currencyProductTest(Product product) {
         open("https://ozon.ru/");
         //срабатывает капча, обходной вариант нашел только такой..
